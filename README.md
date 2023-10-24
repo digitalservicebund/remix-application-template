@@ -25,6 +25,15 @@ Before pushing, the following checks are additionally ran:
 - `licenses-audit` - uses `license-checker` to verify depency licenses
 - `secrets-audit` - avoid accidental pushes of [secrets and sensitive information](https://thoughtworks.github.io/talisman/)
 
+### security.txt
+
+This template contains a [security.txt](https://securitytxt.org/), where you probably want to update the expiration date. The following entries may also be added:
+
+```
+Policy: https://raw.githubusercontent.com/digitalservicebund/<<REPO_NAME>>/main/SECURITY.md
+Canonical: https://<<PROJECT_URL>>/.well-known/security.txt
+```
+
 ## Development
 
 From your terminal:
