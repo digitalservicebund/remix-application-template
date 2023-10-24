@@ -1,0 +1,6 @@
+fileignoreconfig:
+- filename: .github/workflows/pipeline.yml
+  checksum: 78d2972e959d379b583fde2e8ad582bf27e08452482c4e63ee4501d34ea669da
+version: ""
+scopeconfig:
+  - scope: node

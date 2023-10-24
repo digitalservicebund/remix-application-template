@@ -8,7 +8,14 @@
     "dev": "remix dev --manual",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "lint:check": "eslint --ext .js,.ts --ignore-path .gitignore .",
+    "lint:fix": "npm run lint:check -- --fix",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write --ignore-unknown .",
+    "style:check": "npm run format:check && npm run lint:check",
+    "style:fix": "npm run format:fix && npm run lint:fix",
+    "audit:licences": "license-checker --production --excludePrivatePackages --onlyAllow ''"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.1.0",
@@ -27,6 +34,7 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.38.0",
+    "prettier": "3.0.3",
     "typescript": "^5.1.6"
   },
   "engines": {

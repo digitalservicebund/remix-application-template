@@ -149,3 +149,9 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# Lefthook
+lefthook-local.yml
+
+# Talisman
+talisman_report
