@@ -1,5 +1,7 @@
 # Remix Application Template
 
+⚠️ **Be warned:** This template is currently work in progress and has not been tested in production yet.
+
 Bootstrap a [Remix](https://remix.run/docs) and TypeScript application with Continuous Delivery
 
 ## Development
