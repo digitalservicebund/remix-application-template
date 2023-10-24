@@ -3,6 +3,10 @@ fileignoreconfig:
   checksum: 319b7ce979770a8eb8b79c4e4804628245fe453124a8c05cbc9ac671c22887c6
 - filename: README.md
   checksum: 6046fa7667f7ef45032b182d76c70b58d09be680d05ec77e5b0c27709015228d
+- filename: public/fonts/BundesSerifWeb-Italic.woff
+  checksum: 2cad03dd85939c73e892cce6d994a89046677e94ceb11dd1cde5a23a3b35c392
+- filename: public/fonts/BundesSansWeb-BoldItalic.woff
+  checksum: 446eff0044854604c36e380d186aab48077af382668430ad518ef49b37d4fa02
 version: ""
 scopeconfig:
   - scope: node
