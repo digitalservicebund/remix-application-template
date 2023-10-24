@@ -19,6 +19,8 @@
     "audit:licences": "license-checker --production --excludePrivatePackages --onlyAllow ''"
   },
   "dependencies": {
+    "@digitalservice4germany/angie": "^1.1.0",
+    "@digitalservice4germany/style-dictionary": "^2.0.0",
     "@remix-run/css-bundle": "^2.1.0",
     "@remix-run/node": "^2.1.0",
     "@remix-run/react": "^2.1.0",
