@@ -7,7 +7,8 @@
     "build": "remix build",
     "dev": "remix dev --manual",
     "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.1.0",
@@ -19,8 +20,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.39.0",
     "@remix-run/dev": "^2.1.0",
     "@remix-run/eslint-config": "^2.1.0",
+    "@types/node": "^20.8.8",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.38.0",
