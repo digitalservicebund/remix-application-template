@@ -1,6 +1,6 @@
-# Welcome to Remix!
+# Remix Application Template
 
-- [Remix Docs](https://remix.run/docs)
+Bootstrap a [Remix](https://remix.run/docs) and TypeScript application with Continuous Delivery
 
 ## Development
 
