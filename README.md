@@ -118,12 +118,12 @@ brew install adr-tools
 ## Contributing
 
 🇬🇧
-Everyone is welcome to contribute the development of the _<please_exchange_with_project_name>_. You can contribute by opening pull request,
+Everyone is welcome to contribute the development of the _remix-application-template_. You can contribute by opening pull request,
 providing documentation or answering questions or giving feedback. Please always follow the guidelines and our
 [Code of Conduct](CODE_OF_CONDUCT.md).
 
 🇩🇪  
-Jede:r ist herzlich eingeladen, die Entwicklung der _<please_exchange_with_project_name>_ mitzugestalten. Du kannst einen Beitrag leisten,
+Jede:r ist herzlich eingeladen, die Entwicklung der _remix-application-template_ mitzugestalten. Du kannst einen Beitrag leisten,
 indem du Pull-Requests eröffnest, die Dokumentation erweiterst, Fragen beantwortest oder Feedback gibst.
 Bitte befolge immer die Richtlinien und unseren [Verhaltenskodex](CODE_OF_CONDUCT_DE.md).
 
