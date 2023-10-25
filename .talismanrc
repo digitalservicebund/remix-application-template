@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: .github/workflows/pipeline.yml
+  checksum: 3d9f84b548b0d134ec60651cc467582608bcfd70d3ce165b79708b8482167822
 - filename: README.md
   checksum: 6046fa7667f7ef45032b182d76c70b58d09be680d05ec77e5b0c27709015228d
 - filename: public/fonts/BundesSerifWeb-Italic.woff
