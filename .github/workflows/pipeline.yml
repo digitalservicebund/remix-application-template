@@ -70,6 +70,11 @@ jobs:
         run: |
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
 
+      - name: Create SBOM
+        uses: digitalservicebund/github-actions/create-sbom@d5ee7b263a28a5f5abf3983edf7f4e6270a9d6f7
+        with:
+          image_name: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
       - name: Send status to Slack
         # Third-party action, pin to commit SHA!
         # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
