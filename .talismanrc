@@ -10,3 +10,5 @@ fileignoreconfig:
 version: ""
 scopeconfig:
   - scope: node
+allowed_patterns:
+  - uses:\ ([A-z0-9\-]+\/)*[A-z0-9\-]+@[a-fA-F0-9]{40}
