@@ -1,4 +1,4 @@
-FROM node:18.18.2 as build
+FROM node:20.9.0 as build
 
 ARG COMMIT_SHA
 ENV APP_VERSION=$COMMIT_SHA
@@ -9,7 +9,7 @@ WORKDIR /src
 COPY . ./
 RUN npm ci && npm run build && npm prune --production
 
-FROM node:18.18.2-alpine3.18
+FROM node:20.9.0-alpine3.18
 
 USER node
 ENV NODE_ENV=production
