@@ -15,6 +15,14 @@ Bootstrap a [Remix](https://remix.run/docs) and TypeScript application with Cont
 We aim to use the current active [LTS version of nodejs](https://nodejs.dev/en/about/releases/), which is V20 at the time of writing.
 There is a `.node-version` file to simplify setup using [nodenv](https://github.com/nodenv/nodenv).
 
+### Dependencies
+
+Install the dependencies using npm.
+
+```bash
+npm install
+```
+
 ### Testing
 
 For E2E and a11y testing with [Playwright](https://playwright.dev/docs/intro) you will need to install the supported browsers:
@@ -30,7 +38,6 @@ For the provided Git hooks you will need to install [lefthook](https://github.co
 
 ```bash
 brew install lefthook talisman
-./run.sh init
 ```
 
 The following hooks are specified in the `lefthook.yml`:
@@ -44,12 +51,19 @@ Before pushing, the following checks are additionally ran:
 - `licenses-audit` - uses `license-checker` to verify depency licenses
 - `secrets-audit` - avoid accidental pushes of [secrets and sensitive information](https://thoughtworks.github.io/talisman/)
 
+### Finish project setup
+
+To then finish the setup of the git hooks and to change the project name from the template name you can run:
+
+```bash
+./run.sh init
+```
+
 ### security.txt
 
-This template contains a [security.txt](https://securitytxt.org/), where you probably want to update the expiration date. The following entries may also be added:
+This template contains a [security.txt](https://securitytxt.org/), where you probably want to update the expiration date. The following entry may also be added:
 
 ```
-Policy: https://raw.githubusercontent.com/digitalservicebund/<<REPO_NAME>>/main/SECURITY.md
 Canonical: https://<<PROJECT_URL>>/.well-known/security.txt
 ```
 
@@ -122,7 +136,7 @@ Everyone is welcome to contribute the development of the _remix-application-temp
 providing documentation or answering questions or giving feedback. Please always follow the guidelines and our
 [Code of Conduct](CODE_OF_CONDUCT.md).
 
-🇩🇪  
+🇩🇪
 Jede:r ist herzlich eingeladen, die Entwicklung der _remix-application-template_ mitzugestalten. Du kannst einen Beitrag leisten,
 indem du Pull-Requests eröffnest, die Dokumentation erweiterst, Fragen beantwortest oder Feedback gibst.
 Bitte befolge immer die Richtlinien und unseren [Verhaltenskodex](CODE_OF_CONDUCT_DE.md).
@@ -136,7 +150,7 @@ By submitting the patch, you agree that your contributions are licensed under th
 
 Please make sure that your changes have been tested befor submitting a pull request.
 
-🇩🇪  
+🇩🇪
 Nach dem Erstellen eines Pull Requests wird dieser von einer Person aus dem Team überprüft. Wenn du einen Pull-Request
 einreichst, erklärst du dich damit einverstanden, deinen Beitrag an den DigitalService und die Community zu
 lizenzieren. Durch das Einreichen des Patches erklärst du dich damit einverstanden, dass deine Beiträge unter der
