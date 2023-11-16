@@ -108,14 +108,35 @@ The project uses [ESLint](https://eslint.org/docs/latest/) for linting and [Pret
 Build and run the app in production mode:
 
 ```sh
+npm run build
 npm start
 ```
+
+### Docker
+
+The project includes a Dockerfile to create a Docker Image for the project.
+
+You can build the Docker Image using
+
+```sh
+docker build -t remix-application-template .
+```
+
+and then start it using
+
+```sh
+docker run -d -p 3000:3000 --name remix-application-template remix-application-template
+```
+
+The website is then available under http://localhost:3000
+
+If you want to include any additional files during the build that are not in the `app` or `public` directories you need to add them to the `.dockerignore` file.
 
 ### DIY
 
 If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
 
-Make sure to deploy the output of `remix build`
+Make sure to deploy the output of `npm run build`
 
 - `build/`
 - `public/build/`

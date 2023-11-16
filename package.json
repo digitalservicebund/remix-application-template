@@ -6,7 +6,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev --manual",
-    "start": "remix build && remix-serve ./build/index.js",
+    "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "test": "jest test",
     "test:e2e": "playwright test",
