@@ -1,14 +1,15 @@
 import type { Config } from "@jest/types";
 
 const config: Config.InitialOptions = {
-  moduleFileExtensions: ["js", "ts", "json"],
-  transform: {
-    "^.+\\.ts$": "ts-jest",
-  },
+  preset: "ts-jest",
   testEnvironment: "jsdom",
+  moduleDirectories: ["node_modules", "<rootDir>/app"],
+  moduleNameMapper: {
+    "~/(.*)": "<rootDir>/app/$1",
+  },
   testPathIgnorePatterns: ["<rootDir>/tests/e2e"],
   setupFilesAfterEnv: ["<rootDir>/tests/jest.setup.ts"],
-  collectCoverageFrom: ["src/**", "!**/*.d.ts"],
+  collectCoverageFrom: ["app/**/*.{ts,tsx,js,jsx}", "!**/*.d.ts"],
 };
 
 export default config;

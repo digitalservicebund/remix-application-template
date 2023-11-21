@@ -10,6 +10,7 @@
     "typecheck": "tsc",
     "test": "jest test",
     "test:e2e": "playwright test",
+    "test:generate-coverage": "jest --coverage",
     "lint:check": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint:check -- --fix",
     "format:check": "prettier --check .",
