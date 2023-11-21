@@ -34,6 +34,7 @@ FROM node:20.9.0-alpine3.18
 
 USER node
 ENV NODE_ENV=production
+ENV npm_config_cache=/tmp/.npm
 ARG COMMIT_SHA
 ENV APP_VERSION=$COMMIT_SHA
 
