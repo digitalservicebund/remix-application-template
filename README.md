@@ -134,6 +134,8 @@ The website is then available under http://localhost:3000
 
 If you want to include any additional files during the build that are not in the `app` or `public` directories you need to add them to the `.dockerignore` file.
 
+The pipeline GitHub Action includes a job to build the Docker Image and push it to GitHub Packages. This job is currently deactivated. To enable it you need to remove the `&& false` from the end of the `if` predicate of the `build-and-push-image` job.
+
 ### DIY
 
 If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
