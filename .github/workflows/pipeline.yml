@@ -53,7 +53,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Install E2E test dependencies
+      - name: Install E2E & A11y test dependencies
         run: |
           npx --yes playwright install --with-deps
 
@@ -63,8 +63,23 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: ${{ failure() }}
         with:
-          name: playwright-test-results
-          path: test-results
+          name: playwright-e2e-test-results
+          path: tests/e2e/playwright-report
+
+      - name: Run A11y tests
+        run: npm run test:a11y
+        env:
+          # Use a different port (from the one used with E2E tests) to workaround problem in CI/GitHub Actions,
+          # starting to occur with playwright/test 1.28.0:
+          # Error: http://localhost:4173 is already used ...
+          # See https://github.com/digitalservicebund/typescript-vite-application-template/actions/runs/3486985178/jobs/5834089375
+          VITE_PORT: 4183
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
+        with:
+          name: playwright-a11y-test-results
+          path: tests/a11y/playwright-report
 
       - name: Build an image from Dockerfile
         run: |

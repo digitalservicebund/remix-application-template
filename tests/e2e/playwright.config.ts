@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 
 // Load both .env and test.env
 dotenv.config();
-dotenv.config({ path: "./tests/test.env" });
+dotenv.config({ path: "../test.env" });
 
 const useDefaultBaseUrl = ["", undefined].includes(process.env.E2E_BASE_URL);
 const baseURL = useDefaultBaseUrl
@@ -19,7 +19,7 @@ const baseURL = useDefaultBaseUrl
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./tests/e2e",
+  testDir: ".",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,8 +29,14 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  reporter: [
+    [
+      "html",
+      {
+        outputFolder: "./playwright-report",
+      },
+    ],
+  ] /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */,
   use: {
     /* Base URL to use in actions like `await page.goto("/")`. */
     baseURL,

@@ -83,12 +83,14 @@ The application has
 
 - unit tests (using [Jest](https://jestjs.io/docs/getting-started))
 - end-to-end tests (using [Playwright](https://playwright.dev/docs/intro))
+- accessibility tests (using [Playwright](https://playwright.dev/docs/intro) and [Axe](https://www.deque.com/axe/))
 
 **Test commands**
 
 - Run unit tests: `npm test`
 - Run unit tests with watcher: `npm test -- --watch`
 - Run E2E tests: `npm run test:e2e`
+- Run A11y tests: `npm run test:a11y`
 
 ### Code quality checks (linting & formatting)
 

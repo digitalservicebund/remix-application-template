@@ -9,11 +9,11 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className={"flex flex-col items-center m-40"}>
+    <main className={"flex flex-col items-center m-40"}>
       <h1 className={"ds-heading-01-reg mb-40"}>Hello DigitalService!</h1>
       <button className="ds-button ds-button-large">
         <span className="ds-button-label">Click me for nothing</span>
       </button>
-    </div>
+    </main>
   );
 }
