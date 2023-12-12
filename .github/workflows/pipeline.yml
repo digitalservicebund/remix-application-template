@@ -231,7 +231,7 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: cosign sign ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        run: cosign sign --yes ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Attest the vulnerability scan
         env:
