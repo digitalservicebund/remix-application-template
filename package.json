@@ -24,7 +24,7 @@
     "@digitalservice4germany/angie": "^1.1.0",
     "@digitalservice4germany/style-dictionary": "^2.0.0",
     "@remix-run/css-bundle": "^2.1.0",
-    "@remix-run/node": "^2.1.0",
+    "@remix-run/node": "^2.4.0",
     "@remix-run/react": "^2.1.0",
     "@remix-run/serve": "^2.1.0",
     "isbot": "^3.6.8",
