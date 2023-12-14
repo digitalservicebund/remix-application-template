@@ -60,7 +60,7 @@ jobs:
       - name: Run E2E tests
         run: npm run test:e2e
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
           name: playwright-e2e-test-results
@@ -75,7 +75,7 @@ jobs:
           # See https://github.com/digitalservicebund/typescript-vite-application-template/actions/runs/3486985178/jobs/5834089375
           VITE_PORT: 4183
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
           name: playwright-a11y-test-results
@@ -202,7 +202,7 @@ jobs:
           output: "vulnerabilities.json"
 
       - name: Upload cosign vulnerability scan record
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: "vulnerabilities.json"
           path: "vulnerabilities.json"
