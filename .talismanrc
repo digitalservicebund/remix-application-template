@@ -1,16 +1,16 @@
 fileignoreconfig:
-- filename: .github/workflows/pipeline.yml
-  checksum: d7dbf0accac9083794bac4e9425f1d928a18178e837fdeefa56b1ad26f456744
-- filename: .github/workflows/scan.yml
-  checksum: 14fd20b334e55e9f6ee23d13fa82d2c17d94cb59928b7dd5828e8adca40cf1d8
-- filename: README.md
-  checksum: 7420902b2398edae580fd51b1043019441b4c3c78fc5495e0bc065a24fbefb95
-- filename: public/fonts/BundesSerifWeb-Italic.woff
-  checksum: 2cad03dd85939c73e892cce6d994a89046677e94ceb11dd1cde5a23a3b35c392
-- filename: public/fonts/BundesSansWeb-BoldItalic.woff
-  checksum: 446eff0044854604c36e380d186aab48077af382668430ad518ef49b37d4fa02
-- filename: SECURITY.md
-  checksum: b1743150cdd537be3a66f5308f887d130f0f320ab21628b63713808090a84e3f
+  - filename: .github/workflows/pipeline.yml
+    checksum: e71142677756a88d2a5c7d9dd151af88ecca0aa4d7684b4fae7cc58b1c5cf03b
+  - filename: .github/workflows/scan.yml
+    checksum: bcc340d79ccbbeda125225c3ca18afd80444470daaea94b753300f6d38fc2ca6
+  - filename: README.md
+    checksum: 7420902b2398edae580fd51b1043019441b4c3c78fc5495e0bc065a24fbefb95
+  - filename: public/fonts/BundesSerifWeb-Italic.woff
+    checksum: 2cad03dd85939c73e892cce6d994a89046677e94ceb11dd1cde5a23a3b35c392
+  - filename: public/fonts/BundesSansWeb-BoldItalic.woff
+    checksum: 446eff0044854604c36e380d186aab48077af382668430ad518ef49b37d4fa02
+  - filename: SECURITY.md
+    checksum: b1743150cdd537be3a66f5308f887d130f0f320ab21628b63713808090a84e3f
 version: ""
 scopeconfig:
   - scope: node
