@@ -12,6 +12,5 @@ public/build
 !remix.config.js
 !remix.env.d.ts
 !SECURITY.md
-!security.txt
 !tailwind.config.js
 !tsconfig.json
