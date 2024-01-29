@@ -18,9 +18,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -86,12 +83,12 @@ jobs:
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
 
       - name: Create SBOM
-        uses: digitalservicebund/github-actions/create-sbom@24b9a8a55f22d21cebeae777aede3ae1b2fd3889
+        uses: digitalservicebund/github-actions/create-sbom@c6b78c632c4b017802d3e3ce9706a43b9380f804
         with:
           image_name: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Send failure to Slack
-        uses: digitalservicebund/github-actions/notify-on-failure@b1492a10bdcc4a4f78a5706f9447d0908e856a53
+        uses: digitalservicebund/github-actions/notify-on-failure@15dd05b628141b7bac0ad26e08c1935cb3ba6bc8 # v1.4.0
         if: ${{ failure() }}
         with:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -101,9 +98,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -141,12 +135,10 @@ jobs:
       security-events: write
     steps:
       - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
+        uses: digitalservicebund/github-actions/github-actions-linter@007a33473780385bb122cfefa7edbb5621e094f7 # v0.1.10
 
       - name: Run Trivy vulnerability scanner
-        # Third-party action, pin to commit SHA!
-        # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
-        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca
+        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca # v0.16.1
         env:
           TRIVY_USERNAME: ${{ github.actor }}
           TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
@@ -159,7 +151,7 @@ jobs:
           exit-code: "1" # Fail the build!
 
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@d0c848438b4dba8892afa6ce5029800c3f9c747c # == v2
+        uses: github/codeql-action/upload-sarif@b7bf0a3ed3ecfa44160715d7c442788f65f0f923 # v3.23.2
         if: always() # Bypass non-zero exit code..
         with:
           sarif_file: "trivy-results.sarif"
@@ -185,9 +177,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
-
       - name: Build image from Dockerfile
         run: |
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
@@ -195,7 +184,7 @@ jobs:
       - name: Generate cosign vulnerability scan record
         # Third-party action, pin to commit SHA!
         # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
-        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca
+        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca # v0.16.1
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
           format: "cosign-vuln"
@@ -209,12 +198,10 @@ jobs:
           if-no-files-found: error
 
       - name: Install cosign
-        # Third-party action, pin to commit SHA!
-        # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
-        uses: sigstore/cosign-installer@9614fae9e5c5eddabb09f90a270fcb487c9f7149
+        uses: sigstore/cosign-installer@9614fae9e5c5eddabb09f90a270fcb487c9f7149 # v3.3.0
 
       - name: Login to container registry
-        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
           registry: "ghcr.io"
           username: ${{ github.actor }}

@@ -16,11 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
+        uses: digitalservicebund/github-actions/github-actions-linter@007a33473780385bb122cfefa7edbb5621e094f7 # v0.1.10
+
       - name: Run Trivy vulnerability scanner
-        # Third-party action, pin to commit SHA!
-        # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
-        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca
+        uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca # v0.16.1
         env:
           TRIVY_USERNAME: ${{ github.actor }}
           TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
@@ -32,7 +31,7 @@ jobs:
           severity: "CRITICAL,HIGH"
           exit-code: "1" # Fail the build!
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@d0c848438b4dba8892afa6ce5029800c3f9c747c # == v2
+        uses: github/codeql-action/upload-sarif@b7bf0a3ed3ecfa44160715d7c442788f65f0f923 # v3.23.2
         if: always() # Bypass non-zero exit code..
         with:
           sarif_file: "trivy-results.sarif"

@@ -14,7 +14,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    # Too much noise with patch releases...
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
