@@ -135,7 +135,7 @@ jobs:
       security-events: write
     steps:
       - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@007a33473780385bb122cfefa7edbb5621e094f7 # v0.1.10
+        uses: digitalservicebund/github-actions/github-actions-linter@c6b78c632c4b017802d3e3ce9706a43b9380f804 # v0.1.10
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@d43c1f16c00cfd3978dde6c07f4bbcf9eb6993ca # v0.16.1
