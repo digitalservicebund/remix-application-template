@@ -2,7 +2,7 @@ fileignoreconfig:
   - filename: .github/workflows/scan.yml
     checksum: e93b93ad5786df26fdea7ddc34a7c015af78b30d9eb1f67ec662caa787fb2c2b
   - filename: .github/workflows/pipeline.yml
-    checksum: f446376d039697ec988f6cb7dd52103cdc6f7d3e2b28010eef550c01a66eef42
+    checksum: 862d3e36f80e7bc53a92aa50be02757c695462f4774c7bb72232b8f952b156b7
   - filename: README.md
     checksum: 7420902b2398edae580fd51b1043019441b4c3c78fc5495e0bc065a24fbefb95
   - filename: public/fonts/BundesSerifWeb-Italic.woff
