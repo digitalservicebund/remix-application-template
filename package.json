@@ -18,7 +18,7 @@
     "format:fix": "prettier --write --ignore-unknown .",
     "style:check": "npm run format:check && npm run lint:check",
     "style:fix": "npm run format:fix && npm run lint:fix",
-    "audit:licences": "license-checker --production --excludePrivatePackages --onlyAllow ''"
+    "audit:licences": "license-checker --production --excludePrivatePackages --onlyAllow '' --summary"
   },
   "dependencies": {
     "@digitalservice4germany/angie": "^1.1.1",
