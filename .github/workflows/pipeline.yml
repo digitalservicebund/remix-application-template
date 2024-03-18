@@ -83,7 +83,7 @@ jobs:
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
 
       - name: Create SBOM
-        uses: digitalservicebund/github-actions/create-sbom@c6b78c632c4b017802d3e3ce9706a43b9380f804
+        uses: digitalservicebund/create-sbom@095884614dac5ea922dfcb09cce2e22f3d6391a3 # v1.1.0
         with:
           image_name: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
@@ -135,7 +135,7 @@ jobs:
       security-events: write
     steps:
       - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@c6b78c632c4b017802d3e3ce9706a43b9380f804 # v0.1.10
+        uses: digitalservicebund/github-actions-linter@16aee7d3ea804d707e9faf6ab3f049ef560dded7 # v0.1.11
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@062f2592684a31eb3aa050cc61e7ca1451cecd3d # v0.18.0
