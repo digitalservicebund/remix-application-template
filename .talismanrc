@@ -1,8 +1,4 @@
 fileignoreconfig:
-  - filename: .github/workflows/scan.yml
-    checksum: 97887b28c617151721b856d3531dbce48e1c041e06a27582598c579e46ead373
-  - filename: .github/workflows/pipeline.yml
-    checksum: d0d176429e335b53a89d859f851380e9c6d01abbc64e0a9bd7c2d599f75932b5
   - filename: README.md
     checksum: 7420902b2398edae580fd51b1043019441b4c3c78fc5495e0bc065a24fbefb95
   - filename: public/fonts/BundesSerifWeb-Italic.woff
@@ -11,6 +7,10 @@ fileignoreconfig:
     checksum: 446eff0044854604c36e380d186aab48077af382668430ad518ef49b37d4fa02
   - filename: SECURITY.md
     checksum: b1743150cdd537be3a66f5308f887d130f0f320ab21628b63713808090a84e3f
+  - filename: .github/workflows/scan.yml
+    checksum: 2858d738089b933133ba30c2c6c267906165dec085a0240e0fda5780444ae41e
+  - filename: .github/workflows/pipeline.yml
+    checksum: d3e2a8f1297d1a8756a5232d1833cd2205fdd10ba6147a6444c5644bc24ad677
 version: ""
 scopeconfig:
   - scope: node
