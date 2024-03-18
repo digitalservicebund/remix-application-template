@@ -82,11 +82,6 @@ jobs:
         run: |
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
 
-      - name: Create SBOM
-        uses: digitalservicebund/github-actions/create-sbom@c6b78c632c4b017802d3e3ce9706a43b9380f804
-        with:
-          image_name: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-
       - name: Send failure to Slack
         uses: digitalservicebund/notify-on-failure-gha@15dd05b628141b7bac0ad26e08c1935cb3ba6bc8 # v1.4.0
         if: ${{ failure() }}
@@ -135,7 +130,7 @@ jobs:
       security-events: write
     steps:
       - name: validate github workflow files to have pinned versions
-        uses: digitalservicebund/github-actions/github-actions-linter@c6b78c632c4b017802d3e3ce9706a43b9380f804 # v0.1.10
+        uses: digitalservicebund/github-actions-linter@dccac3ada437947aada4bc901daff08ceb87c3f1 # v0.1.11
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@062f2592684a31eb3aa050cc61e7ca1451cecd3d # v0.18.0
@@ -212,6 +207,11 @@ jobs:
           docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ghcr.io/${{ env.IMAGE_NAME }}
           docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker push --all-tags ghcr.io/${{ env.IMAGE_NAME }}
+
+      - name: Create SBOM
+        uses: digitalservicebund/create-sbom@095884614dac5ea922dfcb09cce2e22f3d6391a3 # v1.1.0
+        with:
+          image_name: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Sign the published Docker image
         env:
