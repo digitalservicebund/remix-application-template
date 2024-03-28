@@ -7,12 +7,12 @@ fileignoreconfig:
     checksum: 446eff0044854604c36e380d186aab48077af382668430ad518ef49b37d4fa02
   - filename: SECURITY.md
     checksum: b1743150cdd537be3a66f5308f887d130f0f320ab21628b63713808090a84e3f
-  - filename: .github/workflows/scan.yml
-    checksum: 7a4c568921b5b941a049117fe0eea54ba312fab03f7aff9e3ae456491f7c6356
-  - filename: .github/workflows/pipeline.yml
-    checksum: e448b156c9bac3477aabc8e65c1e0bac8f52d2e6d0522f079745b8b90b3008f5
 version: ""
 scopeconfig:
   - scope: node
 allowed_patterns:
   - uses:\ ([A-z0-9\-]+\/)*[A-z0-9\-]+@[a-fA-F0-9]{40}
+  - "Secrets\ scan\ :point_right:"
+  - TRIVY_PASSWORD:\ \${{\ secrets.GITHUB_TOKEN\ }}
+  - password:\ \${{\ secrets.GITHUB_TOKEN\ }}
+  - key:\ \${{\ runner.os\ }}-node-\${{\ hashFiles\('[*]{2}/package-lock.json'\)\ }}
