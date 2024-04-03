@@ -33,7 +33,7 @@
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.8.5",
+    "@axe-core/playwright": "^4.9.0",
     "@playwright/test": "^1.42.1",
     "@remix-run/dev": "^2.8.1",
     "@remix-run/eslint-config": "^2.8.1",
