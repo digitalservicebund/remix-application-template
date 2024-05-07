@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.9.0",
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.0",
     "@remix-run/dev": "^2.9.1",
     "@remix-run/eslint-config": "^2.9.1",
     "@testing-library/jest-dom": "^6.4.3",
