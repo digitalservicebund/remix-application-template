@@ -16,3 +16,4 @@ allowed_patterns:
   - TRIVY_PASSWORD:\ \${{\ secrets.GITHUB_TOKEN\ }}
   - password:\ \${{\ secrets.GITHUB_TOKEN\ }}
   - key:\ \${{\ runner.os\ }}-node-\${{\ hashFiles\('[*]{2}/package-lock.json'\)\ }}
+  - secrets:\ inherit
