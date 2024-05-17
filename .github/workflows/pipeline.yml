@@ -125,6 +125,7 @@ jobs:
 
   vulnerability-scan:
     uses: ./.github/workflows/scan.yml
+    secrets: inherit
 
   build-and-push-image:
     runs-on: ubuntu-latest
