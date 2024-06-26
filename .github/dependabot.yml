@@ -6,6 +6,10 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      remix:
+        patterns:
+          - "@remix-run/*"
     # Too much noise with patch releases...
     ignore:
       - dependency-name: "*"
