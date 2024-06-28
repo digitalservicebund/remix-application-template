@@ -67,8 +67,8 @@ _help() {
   echo "Usage: ./run.sh [command]"
   echo ""
   echo "Available commands:"
-  echo "init                Set up repository for development"
-  echo "setup_git_hooks     Set up repository for development"
+  echo "init                Set up repository for development by replacing the template name and installing the Git hooks"
+  echo "setup_git_hooks     Install the Git hooks"
 }
 
 case "$@" in
