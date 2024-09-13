@@ -8,7 +8,7 @@ RUN npm ci
 # Download and install the dependencies for running the app
 FROM node:20-alpine AS production-dependencies
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 WORKDIR /src
 COPY package*.json ./
 RUN npm ci
