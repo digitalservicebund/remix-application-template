@@ -12,7 +12,7 @@ dotenv.config({ path: "../test.env" });
 
 const useDefaultBaseUrl = ["", undefined].includes(process.env.E2E_BASE_URL);
 const baseURL = useDefaultBaseUrl
-  ? "http://127.0.0.1:3000"
+  ? "http://localhost:3000"
   : process.env.E2E_BASE_URL;
 
 /**
