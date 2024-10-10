@@ -1,33 +1,28 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 
-import stylesheet from "~/styles.css";
-import fontsStylesheet from "@digitalservice4germany/angie/fonts.css";
-import fontRegular from "~/../public/fonts/BundesSansWeb-Regular.woff2";
-import fontBold from "~/../public/fonts/BundesSansWeb-Bold.woff2";
+import stylesheet from "~/styles.css?url";
+import fontsStylesheet from "@digitalservice4germany/angie/fonts.css?url";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   {
     rel: "preload",
     as: "font",
     type: "font/woff2",
-    href: fontRegular,
+    href: "/fonts/BundesSansWeb-Regular.woff2",
     crossOrigin: "anonymous",
   },
   {
     rel: "preload",
     as: "font",
     type: "font/woff2",
-    href: fontBold,
+    href: "/fonts/BundesSansWeb-Bold.woff2",
     crossOrigin: "anonymous",
   },
   { rel: "stylesheet", href: fontsStylesheet },
@@ -48,7 +43,6 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );

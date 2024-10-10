@@ -1,6 +1,9 @@
 {
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
+    "types": ["@remix-run/node", "vite/client"],
+    "skipLibCheck": true,
+    "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,
     "esModuleInterop": true,

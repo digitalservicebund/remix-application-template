@@ -1,7 +1,6 @@
 # Remix
 /.cache
 /build
-/public/build
 
 # Logs
 logs

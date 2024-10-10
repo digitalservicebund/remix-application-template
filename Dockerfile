@@ -42,8 +42,8 @@ WORKDIR /home/node/src
 # Move only the files to the final image that are really needed
 COPY --chown=node:node package*.json LICENSE SECURITY.md ./
 COPY --chown=node:node --from=production-dependencies /src/node_modules/ ./node_modules/
-COPY --chown=node:node --from=build /src/build/ ./build/
-COPY --chown=node:node --from=build /src/public/ ./public/
+COPY --chown=node:node --from=build /src/build/server ./build/server
+COPY --chown=node:node --from=build /src/build/client ./build/client
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]

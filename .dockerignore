@@ -4,13 +4,12 @@
 # Include files required for building the application (except for node_modules these are installed by docker)
 !app
 !public
-public/build
 !LICENSE
 !package-lock.json
 !package.json
 !README.md
-!remix.config.js
-!remix.env.d.ts
 !SECURITY.md
 !tailwind.config.js
 !tsconfig.json
+!postcss.config.mjs
+!vite.config.ts

@@ -4,9 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev --manual",
-    "start": "remix-serve ./build/index.js",
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
     "test": "jest test",
     "test:e2e": "playwright test --config=tests/e2e/playwright.config.ts",
@@ -23,7 +23,6 @@
   "dependencies": {
     "@digitalservice4germany/angie": "^1.2.0",
     "@digitalservice4germany/style-dictionary": "^2.0.0",
-    "@remix-run/css-bundle": "^2.12.1",
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
     "@remix-run/serve": "^2.12.1",
@@ -49,7 +48,9 @@
     "prettier": "3.3.3",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vite": "^5.4.8",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "engines": {
     "node": ">=20.0.0"
