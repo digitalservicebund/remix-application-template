@@ -155,6 +155,7 @@ jobs:
           TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          scanners: "vuln"
           format: "cosign-vuln"
           output: "vulnerabilities.json"
 

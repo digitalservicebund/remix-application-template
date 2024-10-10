@@ -29,8 +29,8 @@ jobs:
           TRIVY_USERNAME: ${{ github.actor }}
           TRIVY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         with:
+          scanners: "vuln"
           scan-type: "fs"
-          skip-dirs: "node_modules" # See https://github.com/aquasecurity/trivy/issues/1283
           format: "sarif"
           output: "trivy-results.sarif"
           severity: "CRITICAL,HIGH"
