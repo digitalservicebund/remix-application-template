@@ -7,8 +7,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
   ],
   overrides: [
     {
@@ -28,11 +26,5 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "react"],
   rules: {},
-  settings: {
-    react: {
-      version: "detect", // React version. "detect" automatically picks the version you have installed.
-      // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-      // It will default to "latest" and warn if missing, and to "detect" in the future
-    },
-  },
+  settings: { react: { version: "detect" } },
 };
