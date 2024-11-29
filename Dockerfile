@@ -30,7 +30,7 @@ COPY . ./
 RUN npm run build
 
 # Final image that runs the app
-FROM node:20.17.0-alpine3.20
+FROM node:20.18.1-alpine3.20
 
 USER node
 ENV NODE_ENV=production
