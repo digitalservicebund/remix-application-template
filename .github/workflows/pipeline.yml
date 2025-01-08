@@ -95,14 +95,14 @@ jobs:
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
-  
+
       - name: Build and cache image from Dockerfile
         run: |
           mkdir -p /tmp/.docker-cache/${{ env.IMAGE_NAME }}
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
           docker save ${{ env.IMAGE_NAME }}:${{ github.sha }} -o /tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar
           echo "Docker image saved to: /tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar"
-  
+
       - name: Send failure to Slack
         uses: digitalservicebund/notify-on-failure-gha@814d0c4b2ad6a3443e89c991f8657b10126510bf # v1.5.0
         if: ${{ failure() }}
@@ -175,8 +175,6 @@ jobs:
       - name: Load cached Docker image
         id: load-docker-image
         run: |
-          echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> $GITHUB_ENV
-          echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_ENV
           IMAGE_PATH="/tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar"
 
           if docker load -i $IMAGE_PATH; then
