@@ -88,6 +88,7 @@ jobs:
           path: tests/a11y/playwright-report
 
       - name: Cache Docker image
+        id: cache-docker-image
         uses: actions/cache@v4
         with:
           path: |
@@ -97,6 +98,7 @@ jobs:
             ${{ runner.os }}-docker-
 
       - name: Build and cache image from Dockerfile
+        if: steps.cache-docker-image.outputs.cache-hit != 'true'
         run: |
           mkdir -p /tmp/.docker-cache/${{ env.IMAGE_NAME }}
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
