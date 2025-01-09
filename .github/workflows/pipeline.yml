@@ -50,7 +50,16 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Cache Playwright dependencies
+        id: cache-playwright-deps
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-playwright-
+
       - name: Install E2E & A11y test dependencies
+        if: steps.cache-playwright-deps.outputs.cache-hit != 'true'
         run: |
           npx --yes playwright install --with-deps
 
