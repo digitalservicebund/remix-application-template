@@ -87,9 +87,23 @@ jobs:
           name: playwright-a11y-test-results
           path: tests/a11y/playwright-report
 
-      - name: Build an image from Dockerfile
+      - name: Cache Docker image
+        id: cache-docker-image
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/.docker-cache
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      - name: Build and cache image from Dockerfile
+        if: steps.cache-docker-image.outputs.cache-hit != 'true'
         run: |
+          mkdir -p /tmp/.docker-cache/${{ env.IMAGE_NAME }}
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
+          docker save ${{ env.IMAGE_NAME }}:${{ github.sha }} -o /tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar
+          echo "Docker image saved to: /tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar"
 
       - name: Send failure to Slack
         uses: digitalservicebund/notify-on-failure-gha@814d0c4b2ad6a3443e89c991f8657b10126510bf # v1.5.0
@@ -151,7 +165,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build image from Dockerfile
+      - name: Restore Docker image cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/.docker-cache
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+
+      - name: Load cached Docker image
+        id: load-docker-image
+        run: |
+          IMAGE_PATH="/tmp/.docker-cache/${{ env.IMAGE_NAME }}_${{ github.sha }}.tar"
+
+          if docker load -i $IMAGE_PATH; then
+            echo "docker-image-load-successful=true" >> $GITHUB_ENV
+            echo "::set-output name=docker-image-load-successful::true"
+            echo "Docker image loaded from cache: $IMAGE_PATH"
+          else
+            echo "docker-image-load-successful=false" >> $GITHUB_ENV
+            echo "::set-output name=docker-image-load-successful::false"
+            echo "Docker image not found in cache: $IMAGE_PATH"
+          fi
+
+      - name: Build image from Dockerfile in case no cached image was found
+        if: steps.load-docker-image.outputs.docker-image-load-successful != 'true'
         run: |
           docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
 
