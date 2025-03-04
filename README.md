@@ -48,7 +48,7 @@ The following hooks are specified in the `lefthook.yml`:
 
 Before pushing, the following checks are additionally ran:
 
-- `licenses-audit` - uses `license-checker` to verify depency licenses
+- `licenses-audit` - uses `license-checker-rseidelsohn` to verify depency licenses
 - `secrets-audit` - avoid accidental pushes of [secrets and sensitive information](https://thoughtworks.github.io/talisman/)
 
 ### Finish project setup
