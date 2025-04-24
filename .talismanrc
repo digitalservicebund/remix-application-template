@@ -8,7 +8,7 @@ fileignoreconfig:
   - filename: SECURITY.md
     checksum: b1743150cdd537be3a66f5308f887d130f0f320ab21628b63713808090a84e3f
   - filename: .github/workflows/pipeline.yml
-    checksum: d4836bebb3e11ba10ad1c019851491c3c0e5454bc03b82bf6c54d638f31bb651
+    checksum: 1ea9f61ad9c89fe911bac770a67649aaf916a5d2c17c42a5440205a163c31a2d
 version: ""
 scopeconfig:
   - scope: node
