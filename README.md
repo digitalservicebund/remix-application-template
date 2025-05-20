@@ -1,12 +1,12 @@
 # Remix Application Template
 
 ---
+
 ⚠️ **DEPRECATED:** This template is out-of-date and archived, as Remix has been [deprecated](https://remix.run/blog/merging-remix-and-react-router) in favor of react-router v7.
 
 To start a project using this stack, we recommend the official [node-custom-server template](https://github.com/remix-run/react-router-templates/tree/main/node-custom-server) and following the best practices as outlined in the official [react-router docs](https://reactrouter.com/start/framework/installation).
 
 ---
-
 
 [![Pipeline](https://github.com/digitalservicebund/remix-application-template/actions/workflows/pipeline.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-template/actions/workflows/pipeline.yml)
 [![Scan](https://github.com/digitalservicebund/remix-application-template/actions/workflows/scan.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-template/actions/workflows/scan.yml)
